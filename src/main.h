@@ -1,13 +1,25 @@
-// Header file
+#include <stdint.h> // #include <> letar efter någon form av modul
 
-typedef char int8;
-typedef short int16;
-typedef int int32;
-typedef long long int int64;
+typedef int8_t s8;
+typedef int16_t s16;
+typedef int32_t s32;
+typedef int64_t s64;
 
-typedef char s8;
-typedef short s16;
-typedef int s32;
-typedef long long int s64;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
 
-typedef char unsigned u8;
+typedef struct Entity
+{
+    u32 hp;
+    u32 attack;
+    u32 defense;
+} Entity;
+
+typedef struct SpecialMonster
+{
+    u32 hp;
+    u32 attack;
+    u32 extra_attack;
+} SpecialMonster;

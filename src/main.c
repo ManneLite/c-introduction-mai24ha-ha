@@ -1,53 +1,54 @@
+// includes
+// stdlib
+// structs
+// minne
+// void *
+
+#include "main.h" // #include "" pekar på någon fil som vi har
 #include <stdio.h>
 
-int main()
+#if 1
+void
+player_init(Entity *player, u32 hp, u32 attack, u32 defense)
 {
-    printf("Hello, CMD!");
+    printf("print 1 player hp is: %d\n", player->hp); // 50
+    player->attack = attack;
+    player->hp = hp;
+    player->defense = defense;
+    printf("print 2 player hp is: %d\n", player->hp); // 100
 }
 
-
+#else
+void
+player_init(Player player, u32 hp, u32 attack, u32 defense)
+{
+    printf("print 1 player hp is: %d\n", player.hp); // 50
+    player.hp = hp;
+    player.attack = attack;
+    player.defense = defense;
+    printf("print 2 player hp is: %d\n", player.hp); // 100
+}
+#endif
 
 int main()
 {
-    int a = 1; // 00000000 00000000 00000000 00000001 
-    int b = 11;
+    Entity player = {};
+    player.hp = 100;
+    player.attack = 10;
+    player.defense = 5;
 
-    int c = a + b;
+    Entity monsters[100] = {};
 
-    printf("c = %d\n", c); // 16, 64, datorspecifik, 4 bytes 
-                         
+    Entity *monster = monsters;
+    for(void *end = &monsters[100]; monster != end; ++monster)
+    {
+        monster->hp = 150;
+    }
 
-    char bytes[4];
-
-    bytes[0] = 0b00000001; // 00000001
-    bytes[1] = 0;
-    bytes[2] = 0;
-    bytes[3] = 0b00000000;
-
-    c = bytes[0];
-
-    char *p1 = &bytes[2]; // p är en pointer, som pekar på den address i minnet där bytes[2] ligger
-
-    printf("c = %d\n", c); 
-
-    printf("p1 = %p\n", p1);
-    printf("*p1 = %d\n", *p1);
-
-    printf("p1 = %p\n", p1);
-    printf("*p1 = %d\n", *p1);
-
-    int *p2 = &bytes[0];
-    printf("p2 = %p\n", p2);
-    printf("p2 - p1 = %lld\n", (char *)p2 - p1);
+    for(int i = 0; i < 100; ++i)
+    {
+        monsters[i].hp = 150;
+    }
 
 
-
-
-
-    printf("*p2 = %d\n", *p2); // 00000000 00000000 00000000 00000001
-                             //
-    char signed_byte = 0b01111111;
-    char unsigned unsigned_byte = 0b11111111;
-    printf("signed byte   = %d\n", signed_byte);
-    printf("unsigned byte = %d\n", unsigned_byte);
 }
