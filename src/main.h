@@ -17,9 +17,8 @@ typedef struct Entity
     u32 defense;
 } Entity;
 
-typedef struct SpecialMonster
-{
-    u32 hp;
-    u32 attack;
-    u32 extra_attack;
-} SpecialMonster;
+#define kilobyte(amount) (amount * 1024LL)
+#define megabyte(amount) (kilobyte(amount) * 1024LL)
+#define gigabyte(amount) (megabyte(amount) * 1024LL)
+#define terabyte(amount) (gigabyte(amount) * 1024LL)
+#define petabyte(amount) (terabyte(amount) * 1024LL)
